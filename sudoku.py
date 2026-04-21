@@ -20,7 +20,7 @@ BOARD_SIZE = 540
 SCREEN_HEIGHT = 660   # 540 board + 120 for button bar
 
 
-# Draw Button
+# Draw button
 def draw_button(surface, text, rect, font, color=BTN_COLOR, hover_color=BTN_HVR, text_color=BTN_TEXT):
     mouse = pygame.mouse.get_pos()
     current_color = hover_color if rect.collidepoint(mouse) else color
@@ -118,7 +118,9 @@ if __name__ == "__main__":
             #     # Return/enter key
             #     elif event.key == pygame.K_RETURN:
             #         # Return
+
         pygame.display.update()
+
         # Win/loss condition
 
         # End game screen
