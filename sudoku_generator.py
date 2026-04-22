@@ -209,7 +209,7 @@ class SudokuGenerator:
         while count < self.removed_cells:
             row = random.randint(0, self.row_length - 1)
             col = random.randint(0, self.row_length - 1)
-            if self.board[row][col] != 0:
+            if self.board[row][col] != 0: #dont remove same cell
                 self.board[row][col] = 0
                 count += 1
 
