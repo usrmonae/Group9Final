@@ -33,20 +33,22 @@ def draw_button(surface, text, rect, font, color=BTN_COLOR, hover_color=BTN_HVR,
     return rect
 
 
-# Main
-if __name__ == "__main__":
-
+def main():
     # Initialize pygame
     pygame.init()
+
+    # Create rectangle for buttons
+    # pygame.Rect(left, top, width, height)
+    button = pygame.Rect(300, 600, 100, 100)  # Test case of 1 button
+
+    # Create font settings for button
+    button_font = pygame.font.Font(None, 30)
 
     # Screen display
     screen_display = pygame.display
 
-    # Form screen
-    screen = screen_display.set_mode()
-
-    # Get default size
-    x, y = screen.get_size()
+    # Set screen size
+    x, y = BOARD_SIZE, SCREEN_HEIGHT
 
     # Store screen size
     z = [x, y]
@@ -56,6 +58,13 @@ if __name__ == "__main__":
 
     # Difficulty
     difficulty = start_screen(win)
+
+    # 1. Remove start screen after difficulty screen
+    # 2. Fill screen with white
+    win.fill((255, 255, 255))
+
+    # Update screen
+    pygame.display.update()
 
     # Determine number of removed cells
     if difficulty == "easy":
@@ -71,10 +80,19 @@ if __name__ == "__main__":
     board_data = generate_sudoku(9, removed_cells)
 
     # Call Board class from board [dot] py
-    board = Board(540, 540, win, difficulty, board_data)
+    board = Board(BOARD_SIZE, BOARD_SIZE, win, difficulty, board_data)
+    # board = Board(x, y, win, difficulty, board_data)
+
+    # Create reset, restart, and exit buttons
+    draw_button(screen_display.set_mode(z), "RESET", button, button_font)
+    # draw_button(screen_display.set_mode(z), "RESTART", rect, "Arial")
+    # draw_button(screen_display.set_mode(z), "EXIT", rect, "Arial")
 
     # Loop through Sudoku game
     while True:
+
+        # Clear screen to begin game session
+        win.fill((255, 255, 255))
 
         board.draw()
 
@@ -88,12 +106,12 @@ if __name__ == "__main__":
 
             # Click event
             # if event.type == pygame.MOUSEBUTTONDOWN:
-                # Get position
-                # x, y = event.pos
-                #
-                # # Check if player selects 1 - Easy
-                # if (x == 180) and (y == 250):
-                #     print("Generate Sudoku Board")
+            # Get position
+            # x, y = event.pos
+            #
+            # # Check if player selects 1 - Easy
+            # if (x == 180) and (y == 250):
+            #     print("Generate Sudoku Board")
 
             # Key input event
             # if event.type == pygame.KEYDOWN:
@@ -130,3 +148,9 @@ if __name__ == "__main__":
         #     if end == "restart":
         #         # Back to start screen
         #         continue
+
+
+# Main
+if __name__ == "__main__":
+
+    main()
