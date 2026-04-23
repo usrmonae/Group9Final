@@ -108,7 +108,7 @@ class Cell:
         x=self.col*gap
         y=self.row*gap
 
-        font=pygame.font.SysFont("comicsans", 40)
+        font=pygame.font.SysFont("comicsans", 30)
         small_font=pygame.font.SysFont("comicsans", 20)
 
         if self.value!=0:
