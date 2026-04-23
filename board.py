@@ -1,7 +1,17 @@
 # board.py
 import pygame
 
-from sudoku import draw_button
+# Moved draw_button from sudoku
+def draw_button(surface, text, rect, font, color=BTN_COLOR, hover_color=BTN_HVR, text_color=BTN_TEXT):
+    mouse = pygame.mouse.get_pos()
+    current_color = hover_color if rect.collidepoint(mouse) else color
+    pygame.draw.rect(surface, current_color, rect, border_radius=8)
+    pygame.draw.rect(surface, DARK_RED, rect, 2, border_radius=8)
+    label = font.render(text, True, text_color)
+    lx = rect.x + (rect.width - label.get_width()) // 2
+    ly = rect.y + (rect.height - label.get_height()) // 2
+    surface.blit(label, (lx, ly))
+    return rect
 
 
 # ---------- START SCREEN ----------
