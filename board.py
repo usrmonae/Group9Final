@@ -5,7 +5,7 @@ import pygame
 # ── Color palette
 WHITE = (255, 255, 255)
 LIGHT_RED = (220,  80,  80)   # main background color
-DARK_RED = (180,  40,  40)   # deeper red for button hover
+DARK_RED = (0,0,0)   # deeper red for button hover
 BTN_COLOR = (255, 255, 255)   # white buttons
 BTN_HVR = (220, 220, 220)   # light gray on hover
 BTN_TEXT = (0,   0,   0)     # black button text

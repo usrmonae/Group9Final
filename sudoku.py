@@ -22,7 +22,7 @@ def main():
     pygame.init()
 
     # Create font settings for button
-    button_font = pygame.font.Font(None, 30)
+    button_font=pygame.font.SysFont("Arial", 20)
 
     # Create rectangle for reset, restart, and exit buttons
     # Format: pygame.Rect(x (left), y (top), width, height)
@@ -80,9 +80,9 @@ def main():
         board.draw()
 
         # Create reset, restart, and exit buttons
-        draw_button(win, "RESET", reset_rect, button_font)
-        draw_button(win, "RESTART", restart_rect, button_font)
-        draw_button(win, "EXIT", exit_rect, button_font)
+        draw_button(win, "Reset", reset_rect, button_font)
+        draw_button(win, "Restart", restart_rect, button_font)
+        draw_button(win, "Exit", exit_rect, button_font)
 
         # Event loop
         for event in pygame.event.get():
